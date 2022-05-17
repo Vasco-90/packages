@@ -628,7 +628,7 @@ class _OpenContainerRoute<T> extends ModalRoute<T> {
     if (hideableKey.currentState?.isVisible == false) {
       // This route may be disposed without dismissing its animation if it is
       // removed by the navigator.
-      SchedulerBinding.instance
+      SchedulerBinding.instance?
           .addPostFrameCallback((Duration d) => _toggleHideable(hide: false));
     }
     super.dispose();
@@ -662,7 +662,7 @@ class _OpenContainerRoute<T> extends ModalRoute<T> {
     }
 
     if (delayForSourceRoute) {
-      SchedulerBinding.instance
+      SchedulerBinding.instance?
           .addPostFrameCallback(takeMeasurementsInSourceRoute);
     } else {
       takeMeasurementsInSourceRoute();
